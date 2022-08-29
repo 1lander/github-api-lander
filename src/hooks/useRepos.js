@@ -6,7 +6,7 @@ const useRepos = (githubUser) => {
 
   useEffect(() => {
     getRepos();
-  }, []);
+  });
 
   const getRepos = async () => {
     try {
