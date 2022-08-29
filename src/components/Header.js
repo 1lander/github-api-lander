@@ -1,10 +1,11 @@
 import React from "react";
 
-const Header = () => {
+const Header = ({ title, avatar_url }) => {
   return (
-    <h1 class="text-7xl text-center font-bold tracking-tight text-gray-90">
-      Lander
-    </h1>
+    <div class="flex align-center justify-center gap-5 mb-9 mt-5">
+      <img class="h-20 w-20 rounded-full" src={avatar_url} alt="profile" />
+      <h1 class="text-7xl font-bold tracking-tight text-gray-90">{title}</h1>
+    </div>
   );
 };
 

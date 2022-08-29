@@ -25,7 +25,7 @@ module.exports = {
         BlitzMax: "#cd6400",
         Boo: "#d4bec1",
         Brainfuck: "#2F2530",
-        "C Sharp": "#178600",
+        "CSharp": "#178600",
         C: "#555555",
         Chapel: "#8dc63f",
         Cirru: "#ccccff",

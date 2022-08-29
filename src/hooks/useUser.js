@@ -1,19 +1,19 @@
 import { useEffect, useState } from "react";
 
-const useRepos = (githubUser) => {
-  const [repos, setRepos] = useState([]);
+const useUser = (githubUser) => {
+  const [user, setUser] = useState();
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getRepos();
+    getUser();
   }, []);
 
-  const getRepos = async () => {
+  const getUser = async () => {
     try {
       setLoading(true);
-      await fetch(`https://api.github.com/users/${githubUser}/repos`)
+      await fetch(`https://api.github.com/users/${githubUser}`)
         .then((res) => res.json())
-        .then((result) => setRepos(result));
+        .then((result) => setUser(result));
 
       setLoading(false);
     } catch (err) {
@@ -22,9 +22,9 @@ const useRepos = (githubUser) => {
   };
 
   return {
-    repos,
+    user,
     loading,
   };
 };
 
-export default useRepos;
+export default useUser;

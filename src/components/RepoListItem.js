@@ -8,7 +8,16 @@ const RepoListItem = ({
   description,
   language,
 }) => {
-  const languageColor = `w-4 h-4 bg-JavaScript rounded-full`;
+  const langColors = {
+    JavaScript: "bg-JavaScript",
+    HTML: "bg-HTML",
+    CSS: "bg-CSS",
+    TypeScript: "bg-TypeScript",
+    Java: "bg-Java",
+    "C#": "bg-CSharp",
+  };
+
+  const languageColor = `w-4 h-4 ${langColors[language]} rounded-full`;
 
   return (
     <a

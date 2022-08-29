@@ -2,14 +2,17 @@ import React from "react";
 import useRepos from "./hooks/useRepos";
 import RepoListItem from "./components/RepoListItem";
 import Header from "./components/Header";
+import useUser from "./hooks/useUser";
 
 const App = () => {
-  const { repos } = useRepos();
-  console.log(repos);
+  const userName = "1lander";
+  const { repos } = useRepos(userName);
+  const { user } = useUser(userName);
+
   return (
     <>
-      <Header />
-      <div class="flex flex-wrap gap-5">
+      <Header title={user?.name} avatar_url={user?.avatar_url} />
+      <div class="flex flex-wrap gap-5 ml-40	mr-40	">
         {repos.map(
           ({ name, commits_url, created_at, description, language }) => (
             <RepoListItem
