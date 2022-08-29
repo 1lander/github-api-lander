@@ -1,4 +1,5 @@
 import React from "react";
+import CommitListItem from "../components/CommitListItem";
 import useCommits from "../hooks/useCommits";
 
 const CommitPage = ({ repoName }) => {
@@ -7,7 +8,7 @@ const CommitPage = ({ repoName }) => {
   return (
     <div class="flex flex-wrap gap-5 ml-40	mr-40	">
       {commits.map(({ commit }) => (
-        <div>{commit.message}</div>
+        <CommitListItem name={commit.message} />
       ))}
     </div>
   );
