@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import useRepos from "./hooks/useRepos";
+import RepoListItem from "./components/RepoListItem";
+import Header from "./components/Header";
 
-function App() {
+const App = () => {
+  const { repos } = useRepos();
+  console.log(repos);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div class="flex flex-wrap gap-5">
+        {repos.map(
+          ({ name, commits_url, created_at, description, language }) => (
+            <RepoListItem
+              name={name}
+              commits_url={commits_url}
+              created_at={created_at}
+              description={description}
+              language={language}
+            />
+          )
+        )}
+      </div>
+    </>
   );
-}
+};
 
 export default App;
