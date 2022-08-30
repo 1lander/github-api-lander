@@ -7,13 +7,8 @@ const RepoPage = ({ userName }) => {
 
   return (
     <div class="flex justify-center flex-wrap gap-5">
-      {repos.map(({ name, commits_url, created_at, language }) => (
-        <RepoListItem
-          name={name}
-          commits_url={commits_url}
-          created_at={created_at}
-          language={language}
-        />
+      {repos.map(({ name, created_at, language }) => (
+        <RepoListItem name={name} created_at={created_at} language={language} />
       ))}
     </div>
   );

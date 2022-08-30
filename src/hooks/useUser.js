@@ -6,7 +6,7 @@ const useUser = (githubUser) => {
 
   useEffect(() => {
     getUser();
-  });
+  }, []);
 
   const getUser = async () => {
     try {

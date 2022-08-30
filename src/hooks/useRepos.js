@@ -6,12 +6,14 @@ const useRepos = (githubUser) => {
 
   useEffect(() => {
     getRepos();
-  });
+  }, []);
 
   const getRepos = async () => {
     try {
       setLoading(true);
-      await fetch(`https://api.github.com/users/${githubUser}/repos`)
+      await fetch(
+        `https://api.github.com/users/${githubUser}/repos?per_page=100`
+      )
         .then((res) => res.json())
         .then((result) => setRepos(result));
 

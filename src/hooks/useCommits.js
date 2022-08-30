@@ -6,7 +6,7 @@ const useCommits = (repoName) => {
 
   useEffect(() => {
     getCommits();
-  });
+  }, []);
 
   const getCommits = async () => {
     try {
