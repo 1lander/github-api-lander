@@ -17,10 +17,7 @@ const App = () => {
       />
       <Routes>
         <Route path="/" element={<RepoPage userName={userName} />} />
-        <Route
-          path="commit"
-          element={<CommitPage repoName={"Amplify-translation-react"} />}
-        />
+        <Route path="commit" element={<CommitPage />} />
       </Routes>
     </>
   );

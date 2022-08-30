@@ -19,6 +19,7 @@ const RepoListItem = ({ name, created_at, language }) => {
     <Link
       class="block p-5 w-80 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 relative"
       to="/commit"
+      state={{ name }}
     >
       <h5 class="mb-1 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {name}
