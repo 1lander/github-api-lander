@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 
 const useCommits = (repoName) => {
   const [commits, setCommits] = useState([]);
+  const [filteredCommits, setFilteredCommits] = useState([]);
+
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -11,9 +13,14 @@ const useCommits = (repoName) => {
   const getCommits = async () => {
     try {
       setLoading(true);
-      await fetch(`https://api.github.com/repos/1lander/${repoName}/commits`)
+      await fetch(
+        `https://api.github.com/repos/1lander/${repoName}/commits?per_page=20`
+      )
         .then((res) => res.json())
-        .then((result) => setCommits(result));
+        .then((result) => {
+          setCommits(result);
+          setFilteredCommits(result);
+        });
 
       setLoading(false);
     } catch (err) {
@@ -21,9 +28,21 @@ const useCommits = (repoName) => {
     }
   };
 
+  const filterCommits = (input) => {
+    if (input && input !== "") {
+      const filtered = commits.filter((commit) =>
+        commit.commit.message.includes(input)
+      );
+      setFilteredCommits(filtered);
+    } else {
+      setFilteredCommits(commits);
+    }
+  };
+
   return {
-    commits,
+    filteredCommits,
     loading,
+    filterCommits,
   };
 };
 
