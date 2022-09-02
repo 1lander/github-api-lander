@@ -11,6 +11,7 @@ const BackButton = ({ route }) => {
         shape="circle"
         icon={<ArrowLeftOutlined />}
         size="large"
+        ghost
       />
     </Link>
   );

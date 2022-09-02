@@ -10,7 +10,7 @@ const CommitPage = () => {
   const { filteredCommits, loading, filterCommits } = useCommits(state.name);
 
   return (
-    <div class="ml-40 mr-40">
+    <div class="ml-5 mr-5">
       <div class="flex justify-between mb-3">
         <BackButton route="/" />
         <SearchInput onSearch={filterCommits} />
@@ -18,7 +18,7 @@ const CommitPage = () => {
       {loading ? (
         <h1 class="text-center text-7xl">Loading...</h1>
       ) : (
-        <div class="flex flex-wrap gap-5">
+        <div class="flex justify-center flex-wrap gap-5">
           {filteredCommits.map(({ commit }, index) => (
             <CommitListItem
               key={index}
