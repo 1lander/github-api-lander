@@ -19,8 +19,12 @@ const CommitPage = () => {
         <h1 class="text-center text-7xl">Loading...</h1>
       ) : (
         <div class="flex flex-wrap gap-5">
-          {filteredCommits.map(({ commit }) => (
-            <CommitListItem name={commit.message} />
+          {filteredCommits.map(({ commit }, index) => (
+            <CommitListItem
+              key={index}
+              name={commit.message}
+              date={commit.committer.date}
+            />
           ))}
         </div>
       )}
