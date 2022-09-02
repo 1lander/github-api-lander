@@ -30,12 +30,14 @@ const useCommits = (repoName) => {
 
   const filterCommits = (input) => {
     if (input && input !== "") {
-      const filtered = commits.filter(
-        ({ commit, committer }) =>
-          commit.message.includes(input) ||
-          commit.committer.date.includes(input) ||
-          committer.login.includes(input)
-      );
+      const filtered = commits.filter(({ commit, committer }) => {
+        const lowerCaseInput = input.toLowerCase();
+        return (
+          commit.message.toLowerCase().includes(lowerCaseInput) ||
+          commit.committer.date.includes(lowerCaseInput) ||
+          committer.login.toLowerCase().includes(lowerCaseInput)
+        );
+      });
       setFilteredCommits(filtered);
     } else {
       setFilteredCommits(commits);

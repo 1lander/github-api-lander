@@ -7,7 +7,7 @@ const CommitListItem = ({ message, committerName, date }) => {
       <h5 class="mb-1 text-xl font-bold tracking-tight text-gray-900 dark:text-white">
         {message}
       </h5>
-      <div class="font-normal text-gray-300 dark:text-white">
+      <div class="font-normal text-gray-700 dark:text-white">
         {committerName}
       </div>
       <p class="font-normal text-gray-700 dark:text-gray-500 absolute bottom-1 right-2">
