@@ -30,8 +30,11 @@ const useCommits = (repoName) => {
 
   const filterCommits = (input) => {
     if (input && input !== "") {
-      const filtered = commits.filter((commit) =>
-        commit.commit.message.includes(input)
+      const filtered = commits.filter(
+        ({ commit, committer }) =>
+          commit.message.includes(input) ||
+          commit.committer.date.includes(input) ||
+          committer.login.includes(input)
       );
       setFilteredCommits(filtered);
     } else {
